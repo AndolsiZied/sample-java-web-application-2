@@ -8,8 +8,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B clean package'
-                archiveArtifacts artifacts: 'target/**.war', fingerprint: true, onlyIfSuccessful: true
+                sh 'mvn -B clean test'
+            }
+        }
+        stage('Package') {
+            steps {
+                sh 'mvn -B clean package -DskipTests'
+                // archiveArtifacts artifacts: 'target/**.war', fingerprint: true, onlyIfSuccessful: true
             }
         }
     }
