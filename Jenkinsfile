@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B --fail-never clean test'
+                sh 'mvn -B clean test'
             }
             post {
                 always {
