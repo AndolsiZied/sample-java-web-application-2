@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B clean test'
+                sh 'mvn -B --fail-never clean test'
             }
         }
         stage('Package') {
