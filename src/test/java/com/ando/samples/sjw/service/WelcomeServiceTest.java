@@ -11,6 +11,7 @@ import static com.ando.samples.sjw.util.Constants.WELCOME_MSG;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = ServiceConfiguration.class)
@@ -22,5 +23,10 @@ public class WelcomeServiceTest {
     @Test
     public void testMessage() throws Exception {
         assertThat(welcomeService.message(), is(equalTo(WELCOME_MSG)));
+    }
+    
+    @Test
+    public void testFail() throws Exception {
+        fail("must fail");
     }
 }
