@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                // archiveArtifacts artifacts: 'target/**.war', fingerprint: true, onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'target/**.war', fingerprint: true, onlyIfSuccessful: true
             }
         }
     }
